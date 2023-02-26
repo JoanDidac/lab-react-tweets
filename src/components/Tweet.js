@@ -1,11 +1,15 @@
-function Tweet() {
+import React from 'react';
+import ProfileImage from './ProfileImage';
+import {tweetsArray as tweets} from '../data/data';
+
+
+function Tweet(props) {
+
+  const {tweet} = props;
+
   return (
     <div className="tweet">
-      <img
-        src="https://i.imgur.com/9yw1Fyw.jpg"
-        className="profile"
-        alt="profile"
-      />
+      <ProfileImage image={tweets.user.image} />
 
       <div className="body">
         <div className="top">
