@@ -1,43 +1,36 @@
 import React from 'react';
 import ProfileImage from './ProfileImage';
-import {tweetsArray as tweets} from '../data/data';
+import Actions from './Actions';
+import Message from './Message';
+import Timestamp from './Timestamp';
+import User from './User';
+import tweetsArray from '../App';
 
 
 function Tweet(props) {
 
-  const {tweet} = props;
+  const {tweetsArray} = props;
 
   return (
     <div className="tweet">
-      <ProfileImage image={tweets.user.image} />
+      <ProfileImage image={tweetsArray.user.image} />
 
       <div className="body">
+
+
         <div className="top">
-          <span className="user">
-            <span className="name">Ironhack</span>
-            <span className="handle">@ironhack</span>
-          </span>
-
-          <span className="timestamp">Nov 30, 2020</span>
+        <User userData={tweetsArray.user} />
+        <Timestamp key={tweetsArray.timestamp} />
         </div>
 
-        <p className="message">
-          On December 7th, we will be hosting a #webinar that will introduce you
-          to #SQL! Are you ready? 🚀
-        </p>
-
-        <div className="actions">
-          {/* Font Awesome icons */}
-          <i className="far fa-comment"></i>
-          <i className="fas fa-retweet"></i>
-          <i className="far fa-heart"></i>
-          <i className="fas fa-share"></i>
+        <Message info={tweetsArray.message} />
+        <Actions />
         </div>
-      </div>
 
       <i className="fas fa-ellipsis-h"></i>
     </div>
   );
 }
+
 
 export default Tweet;
