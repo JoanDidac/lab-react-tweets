@@ -4,27 +4,28 @@ import Actions from './Actions';
 import Message from './Message';
 import Timestamp from './Timestamp';
 import User from './User';
-import tweetsArray from '../App';
 
 
-function Tweet(props) {
+const Tweet = (props) => {
+  const {tweet} = props;
+  const {user ,timestamp ,message} = tweet;
+  
 
-  const {tweetsArray} = props;
-
+console.log(props);
   return (
+    
     <div className="tweet">
-      <ProfileImage image={tweetsArray.user.image} />
-
+      <ProfileImage image={user.image} />
       <div className="body">
-
-
         <div className="top">
-        <User userData={tweetsArray.user} />
-        <Timestamp key={tweetsArray.timestamp} />
+        <User userData={user} />
+        <Timestamp time={timestamp} />
         </div>
 
-        <Message info={tweetsArray.message} />
+        <Message message={message} ></Message>
+        
         <Actions />
+        
         </div>
 
       <i className="fas fa-ellipsis-h"></i>

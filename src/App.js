@@ -3,9 +3,10 @@ import Tweet from "./components/Tweet";
 
 
 
-const tweetsArray = [
+export const tweetsArray = [
   {
     user: {
+      id:'123',
       name: "Thoughts of Dog®",
       image: "https://i.imgur.com/b0EdHVV.jpg",
       handle: "dog_feelings",
@@ -16,6 +17,7 @@ const tweetsArray = [
   },
   {
     user: {
+      id: '234',
       name: "Thoughts of Dog®",
       image: "https://i.imgur.com/b0EdHVV.jpg",
       handle: "dog_feelings",
@@ -26,6 +28,7 @@ const tweetsArray = [
   },
   {
     user: {
+      id: '345',
       name: "Thoughts of Dog®",
       image: "https://i.imgur.com/b0EdHVV.jpg",
       handle: "dog_feelings",
@@ -40,17 +43,12 @@ function App() {
   return (
     <div className="App">
       {tweetsArray.map(elem => {
-        return <Tweet key={elem._id} tweet={elem} />
+        return <Tweet tweet={elem}  key={elem.user.id} />
       })}
-        <p>NOTAAAA!!! He intentado camnbiar las variables y pasar los props de 50 maneras y nunca lo hago bien, le he dado tantas vueltas que ya nisiquiera me pinta el primer tweet please help! </p>
-      <Tweet />
-      <Tweet />
-      <Tweet />
-
-      {/* <Tweet tweet={ tweetsArray[0] }></Tweet> */}
-      
     </div>
   );
 }
 
 export default App;
+
+
